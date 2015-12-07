@@ -16,7 +16,7 @@ function toDate(date) {
   return new Date(date);
 }
 
-module.exports = React.createClass({
+var Calendar = React.createClass({
 
     propTypes: {
         closeOnSelect: React.PropTypes.bool,
@@ -330,3 +330,5 @@ module.exports = React.createClass({
     }
 
 });
+
+module.exports = Calendar;

@@ -11,7 +11,7 @@ var webpackSettings = {
     publicPath: '/dist/',
     filename: 'main.js',
     libraryTarget: "var",
-    library: "Foo"
+    library: "Calendar"
   },
   module: {
     loaders: [{
@@ -21,8 +21,6 @@ var webpackSettings = {
     }]
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
     'moment': 'moment',
     'moment-range': 'moment-range',
     'cs': 'classnames'
