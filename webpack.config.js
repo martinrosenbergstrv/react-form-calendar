@@ -21,11 +21,11 @@ var webpackSettings = {
     }]
   },
   externals: {
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-    'moment': 'moment',
-    'moment-range': 'moment-range',
-    'cs': 'classnames'
+    //'react': 'React',
+    //'react-dom': 'ReactDOM',
+    //'moment': 'moment',
+    //'moment-range': 'moment-range',
+    //'cs': 'classnames'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({minimize: true}),
