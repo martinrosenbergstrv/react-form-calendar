@@ -21,6 +21,8 @@ var webpackSettings = {
     }]
   },
   externals: {
+    'react': 'React',
+    'react-dom': 'ReactDOM',
     'moment': 'moment',
     'moment-range': 'moment-range',
     'cs': 'classnames'
