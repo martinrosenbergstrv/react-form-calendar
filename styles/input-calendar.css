@@ -22,7 +22,7 @@
     z-index: 2;
 }
 
-.input-calendar .input-calendar-value {
+.input-calendar .form-control {
     width: 120px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -31,7 +31,7 @@
     padding: 2px 8px;
 }
 
-.input-calendar .input-calendar-value:focus {
+.input-calendar .form-control:focus {
     outline: none;
     border: 1px solid #f39c12;
 }
