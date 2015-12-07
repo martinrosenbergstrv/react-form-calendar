@@ -1,6 +1,6 @@
 {
   "name": "react-form-calendar",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Datepicker widget react component",
   "repository": "https://github.com/Rudeg/react-input-calendar",
   "main": "src/Calendar.js",
@@ -13,10 +13,10 @@
     "moment-range": "^2.0.3",
     "react": "^0.14.2",
     "reactify": "^1.1.1",
-    "webpack": "^1.12.9"
+    "webpack": "^1.12.9",
+    "react-dom": "^0.14.3"
   },
   "devDependencies": {
-    "react-dom": "^0.14.3",
     "webpack-dev-server": "^1.14.0"
   },
   "scripts": {
