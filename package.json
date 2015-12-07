@@ -1,38 +1,28 @@
 {
-  "name": "react-input-calendar",
-  "version": "0.1.19",
+  "name": "react-form-calendar",
+  "version": "0.0.1",
   "description": "Datepicker widget react component",
   "repository": "https://github.com/Rudeg/react-input-calendar",
   "main": "index.js",
   "dependencies": {
+    "babel-core": "^5.8.34",
+    "babel-loader": "^5.4.0",
     "classnames": "^2.2.0",
     "envify": "^3.4.0",
     "moment": "^2.10.6",
     "moment-range": "^2.0.3",
     "react": "^0.14.2",
-    "reactify": "^1.1.1"
+    "reactify": "^1.1.1",
+    "webpack": "^1.12.9"
   },
   "devDependencies": {
-    "browserify": "^12.0.1",
-    "gulp": "^3.9.0",
-    "gulp-react": "^3.1.0",
-    "jest-cli": "~0.7.0",
-    "uglify-js": "~2.5.0",
-    "watchify": "^3.6.0"
+    "react-dom": "^0.14.3",
+    "webpack-dev-server": "^1.14.0"
   },
   "scripts": {
-    "start": "watchify -o js/bundle.js -v -d .",
-    "build": "browserify reactify -cm > dist/input-calendar.js",
-    "test": "jest"
-  },
-  "browserify": {
-    "transform": [
-      "reactify",
-      "envify"
-    ]
-  },
-  "jest": {
-    "rootDir": "./src"
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "webpack-dev": "webpack-dev-server"
   },
   "keywords": [
     "react",
@@ -47,5 +37,10 @@
   ],
   "homepage": "https://github.com/Rudeg/react-input-calendar",
   "author": "Rudeg <rudenko.sergey92@gmail.com> (https://github.com/Rudeg)",
+  "contributors": [
+    {
+      "name": "Martin Rosenberg"
+    }
+  ],
   "license": "MIT"
 }

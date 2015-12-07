@@ -33,6 +33,13 @@ module.exports = React.createClass({
         hideTouchKeyboard: React.PropTypes.bool,
     },
 
+    getDefaultProps: function() {
+      return {
+        calendarIcon: 'Toggle calendar',
+        iconClass: false
+      }
+    },
+
     getInitialState: function() {
         var date = this.props.date ? moment(toDate(this.props.date)) : null,
             minDate = this.props.minDate ? moment(toDate(this.props.minDate)) : null,
@@ -284,12 +291,6 @@ module.exports = React.createClass({
                 </span>
             </div>;
 
-        var iconClass = cs({
-            'fa': true,
-            'fa-calendar': !this.state.isVisible,
-            'fa-calendar-o': this.state.isVisible
-        });
-
         var readOnly = false;
 
         if(this.props.hideTouchKeyboard) {
@@ -307,7 +308,7 @@ module.exports = React.createClass({
             <div className="input-calendar">
                 <input type="text"
                     id={this.props.inputFieldId}
-                    className="input-calendar-value"
+                    className="form-control"
                     value={this.state.inputValue}
                     onBlur={this.inputBlur}
                     onChange={this.changeDate}
@@ -316,7 +317,12 @@ module.exports = React.createClass({
                     readOnly={readOnly} />
 
                 <span onClick={this.toggleClick} className="icon-wrapper calendar-icon">
-                    <i className={iconClass}></i>
+                  {this.props.iconClass &&
+                    <i className={this.props.iconClass}></i>}
+
+                  { !this.props.iconClass && <span>
+                    {this.props.calendarIcon}
+                  </span>}
                 </span>
                 {calendar}
             </div>
