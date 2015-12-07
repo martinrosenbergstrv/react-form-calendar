@@ -22,20 +22,6 @@
     z-index: 2;
 }
 
-.input-calendar .form-control {
-    width: 120px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-family: 'Pontano Sans', sans-serif;
-    font-size: 16px;
-    padding: 2px 8px;
-}
-
-.input-calendar .form-control:focus {
-    outline: none;
-    border: 1px solid #f39c12;
-}
-
 .input-calendar .calendar-icon {
     display: inline-block;
     padding: 0 5px;

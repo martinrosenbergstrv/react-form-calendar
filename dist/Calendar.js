@@ -292,6 +292,7 @@ var Calendar = React.createClass({displayName: "Calendar",
       );
 
     var readOnly = false;
+    var srClass = 'sr-only';
 
     if(this.props.hideTouchKeyboard) {
       // do not break server side rendering:
@@ -316,14 +317,14 @@ var Calendar = React.createClass({displayName: "Calendar",
                placeholder: this.props.placeholder, 
                readOnly: readOnly}), 
 
-                React.createElement("span", {onClick: this.toggleClick, className: "icon-wrapper calendar-icon"}, 
-                  this.props.iconClass &&
-                  React.createElement("i", {className: this.props.iconClass}), 
+        React.createElement("span", {onClick: this.toggleClick, className: "icon-wrapper calendar-icon"}, 
+          this.props.iconClass &&
+          React.createElement("i", {className: this.props.iconClass}), 
 
-                   !this.props.iconClass && React.createElement("span", null, 
-                    this.props.calendarIcon
-                  )
-                ), 
+           !this.props.iconClass && React.createElement("span", null, 
+            this.props.calendarIcon
+          )
+        ), 
         calendar
       )
     );
