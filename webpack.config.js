@@ -13,16 +13,19 @@ var webpackSettings = {
   },
   module: {
     loaders: [{
-      test: /\.(es6|js)$/,
+      test: /\.js$/,
       exclude: /node_modules/,
-      loader: "babel-loader"
+      loader: "babel"
     }]
   },
+  externals: {
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    'moment': 'Moment',
+    'moment-range': 'MomentRange'
+  },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true}),
-    new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.optimize.UglifyJsPlugin({minimize: false})
   ],
   resolve: {
     extensions: ['', '.js']
