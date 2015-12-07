@@ -9,7 +9,9 @@ var webpackSettings = {
   output: {
     path: path.resolve('dist/'),
     publicPath: '/dist/',
-    filename: 'main.js'
+    filename: 'main.js',
+    libraryTarget: "var",
+    library: "Foo"
   },
   module: {
     loaders: [{
@@ -19,14 +21,15 @@ var webpackSettings = {
     }]
   },
   externals: {
-    react: 'React',
+    'react': 'React',
     'react-dom': 'ReactDOM',
-    'moment': 'Moment',
-    'moment-range': 'MomentRange',
-    'classnames': 'Classnames'
+    'moment': 'moment',
+    'moment-range': 'moment-range',
+    'cs': 'classnames'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    new webpack.optimize.UglifyJsPlugin({minimize: true}),
+    new webpack.optimize.DedupePlugin()
   ],
   resolve: {
     extensions: ['', '.js']
