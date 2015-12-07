@@ -22,10 +22,11 @@ var webpackSettings = {
     react: 'React',
     'react-dom': 'ReactDOM',
     'moment': 'Moment',
-    'moment-range': 'MomentRange'
+    'moment-range': 'MomentRange',
+    'classnames': 'Classnames'
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({minimize: false})
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   resolve: {
     extensions: ['', '.js']
