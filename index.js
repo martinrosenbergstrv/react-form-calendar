@@ -5,7 +5,7 @@ var Calendar = require('./src/Calendar');
 ReactDOM.render(
   <div>
     <h1>Calendar example</h1>
-    <Calendar iconClass='ico ico-prd'/>
+    <Calendar />
   </div>,
   document.getElementById('root')
 );
