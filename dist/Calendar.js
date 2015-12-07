@@ -16,7 +16,7 @@ function toDate(date) {
   return new Date(date);
 }
 
-module.exports = React.createClass({
+module.exports = React.createClass({displayName: "exports",
 
     propTypes: {
         closeOnSelect: React.PropTypes.bool,
@@ -244,29 +244,29 @@ module.exports = React.createClass({
         var view;
         switch (this.state.currentView) {
             case 0:
-                view = <DaysView
-                    date={calendarDate}
-                    minDate={this.state.minDate}
-                    maxDate={this.state.maxDate}
-                    setDate={this.setDate}
-                    nextView={this.nextView} />;
+                view = React.createElement(DaysView, {
+                    date: calendarDate, 
+                    minDate: this.state.minDate, 
+                    maxDate: this.state.maxDate, 
+                    setDate: this.setDate, 
+                    nextView: this.nextView});
                 break;
             case 1:
-                view = <MonthsView
-                    date={calendarDate}
-                    minDate={this.state.minDate}
-                    maxDate={this.state.maxDate}
-                    setDate={this.setDate}
-                    nextView={this.nextView}
-                    prevView={this.prevView} />;
+                view = React.createElement(MonthsView, {
+                    date: calendarDate, 
+                    minDate: this.state.minDate, 
+                    maxDate: this.state.maxDate, 
+                    setDate: this.setDate, 
+                    nextView: this.nextView, 
+                    prevView: this.prevView});
                 break;
             case 2:
-                view = <YearsView
-                    date={calendarDate}
-                    minDate={this.state.minDate}
-                    maxDate={this.state.maxDate}
-                    setDate={this.setDate}
-                    prevView={this.prevView} />;
+                view = React.createElement(YearsView, {
+                    date: calendarDate, 
+                    minDate: this.state.minDate, 
+                    maxDate: this.state.maxDate, 
+                    setDate: this.setDate, 
+                    prevView: this.prevView});
                 break;
         }
 
@@ -275,14 +275,14 @@ module.exports = React.createClass({
           todayText = 'Heute';
 
         var calendar = !this.state.isVisible ? '' :
-            <div className="input-calendar-wrapper" onClick={this.calendarClick}>
-                {view}
-                <span
-                  className={"today-btn" + (this.checkIfDateDisabled(moment().startOf('day')) ? " disabled" : "")}
-                  onClick={this.todayClick}>
-                  {todayText}
-                </span>
-            </div>;
+            React.createElement("div", {className: "input-calendar-wrapper", onClick: this.calendarClick}, 
+                view, 
+                React.createElement("span", {
+                  className: "today-btn" + (this.checkIfDateDisabled(moment().startOf('day')) ? " disabled" : ""), 
+                  onClick: this.todayClick}, 
+                  todayText
+                )
+            );
 
         var iconClass = cs({
             'fa': true,
@@ -304,22 +304,22 @@ module.exports = React.createClass({
         }
 
         return (
-            <div className="input-calendar">
-                <input type="text"
-                    id={this.props.inputFieldId}
-                    className="input-calendar-value"
-                    value={this.state.inputValue}
-                    onBlur={this.inputBlur}
-                    onChange={this.changeDate}
-                    onFocus={this.props.openOnInputFocus ? this.toggleClick : ''}
-                    placeholder={this.props.placeholder}
-                    readOnly={readOnly} />
+            React.createElement("div", {className: "input-calendar"}, 
+                React.createElement("input", {type: "text", 
+                    id: this.props.inputFieldId, 
+                    className: "input-calendar-value", 
+                    value: this.state.inputValue, 
+                    onBlur: this.inputBlur, 
+                    onChange: this.changeDate, 
+                    onFocus: this.props.openOnInputFocus ? this.toggleClick : '', 
+                    placeholder: this.props.placeholder, 
+                    readOnly: readOnly}), 
 
-                <span onClick={this.toggleClick} className="icon-wrapper calendar-icon">
-                    <i className={iconClass}></i>
-                </span>
-                {calendar}
-            </div>
+                React.createElement("span", {onClick: this.toggleClick, className: "icon-wrapper calendar-icon"}, 
+                    React.createElement("i", {className: iconClass})
+                ), 
+                calendar
+            )
         );
     }
 

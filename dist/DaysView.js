@@ -5,7 +5,7 @@ require('moment-range');
 var Cell = require('./Cell');
 var ViewHeader = require('./ViewHeader');
 
-module.exports = React.createClass({
+module.exports = React.createClass({displayName: "exports",
 
     propTypes: {
         date: React.PropTypes.object.isRequired,
@@ -103,7 +103,7 @@ module.exports = React.createClass({
 
     render: function () {
         var titles = this.getDaysTitles().map(function (item, i) {
-            return <Cell value={item.label} classes="day title" key={i} />
+            return React.createElement(Cell, {value: item.label, classes: "day title", key: i})
         });
 
         var days = this.getDays().map(function (item, i) {
@@ -115,22 +115,22 @@ module.exports = React.createClass({
                 'current': item.curr,
                 'today': item.today
             });
-            return <Cell value={item.label} classes={_class} key={i} />
+            return React.createElement(Cell, {value: item.label, classes: _class, key: i})
         });
 
         var currentDate = this.props.date ? this.props.date.format('MMMM') : moment().format('MMMM');
 
         return (
-            <div className="view days-view" onKeyDown={this.keyDown}>
-                <ViewHeader
-                    prev={this.prev}
-                    next={this.next}
-                    data={currentDate}
-                    titleAction={this.props.nextView} />
+            React.createElement("div", {className: "view days-view", onKeyDown: this.keyDown}, 
+                React.createElement(ViewHeader, {
+                    prev: this.prev, 
+                    next: this.next, 
+                    data: currentDate, 
+                    titleAction: this.props.nextView}), 
 
-                <div className="days-title">{titles}</div>
-                <div className="days" onClick={this.cellClick} >{days}</div>
-            </div>
+                React.createElement("div", {className: "days-title"}, titles), 
+                React.createElement("div", {className: "days", onClick: this.cellClick}, days)
+            )
         );
     }
 

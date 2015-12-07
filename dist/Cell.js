@@ -2,7 +2,7 @@ var React = require('react');
 var moment = require('moment');
 require('moment-range');
 
-module.exports = React.createClass({
+module.exports = React.createClass({displayName: "exports",
 
     propTypes: {
         value: React.PropTypes.string,

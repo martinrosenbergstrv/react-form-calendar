@@ -5,7 +5,7 @@ require('moment-range');
 var Cell = require('./Cell');
 var ViewHeader = require('./ViewHeader');
 
-module.exports = React.createClass({
+module.exports = React.createClass({displayName: "exports",
 
     propTypes: {
         date: React.PropTypes.object.isRequired,
@@ -71,21 +71,21 @@ module.exports = React.createClass({
                 'disabled': item.disabled,
                 'current': item.curr
             });
-            return <Cell value={item.label} classes={_class} key={i} />
+            return React.createElement(Cell, {value: item.label, classes: _class, key: i})
         });
 
         var currentDate = this.props.date.format('YYYY');
 
         return (
-            <div className="months-view" >
-                <ViewHeader
-                    prev={this.prev}
-                    next={this.next}
-                    data={currentDate}
-                    titleAction={this.props.nextView} />
+            React.createElement("div", {className: "months-view"}, 
+                React.createElement(ViewHeader, {
+                    prev: this.prev, 
+                    next: this.next, 
+                    data: currentDate, 
+                    titleAction: this.props.nextView}), 
 
-                <div className="months" onClick={this.cellClick}>{months}</div>
-            </div>
+                React.createElement("div", {className: "months", onClick: this.cellClick}, months)
+            )
         );
     }
 

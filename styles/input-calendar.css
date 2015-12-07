@@ -1,4 +1,5 @@
 .input-calendar {
+    font-family: 'Pontano Sans', sans-serif;
     width: 175px;
     position: relative;
 }
@@ -6,7 +7,9 @@
 .input-calendar-wrapper {
     position: absolute;
     padding: 5px 12px;
+    border: 1px solid #c4c4c4;
     border-radius: 5px;
+    box-shadow: 0 0 9px 5px rgba(0,0,0,0.05);
     background-color: #fff;
     width: 189px;
     text-align: center;
@@ -19,15 +22,16 @@
     z-index: 2;
 }
 
-.input-calendar .form-control {
+.input-calendar .input-calendar-value {
     width: 120px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    font-family: 'Pontano Sans', sans-serif;
     font-size: 16px;
     padding: 2px 8px;
 }
 
-.input-calendar .form-control:focus {
+.input-calendar .input-calendar-value:focus {
     outline: none;
     border: 1px solid #f39c12;
 }
